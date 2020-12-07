@@ -33,6 +33,7 @@ This reference guide and these supplemental materials are associated with [this]
       - [Material](#material)
       - [Keyframes](#keyframes)
       - [Setting part origin](#setting-part-origin)
+      - [Glass](#glass)
   - [Properties Pane](#properties-pane)
 <!-- Table of Contents -->
 
@@ -279,7 +280,33 @@ Set origin to arbitrary mesh vertex:
   5. 'right click the object' &#8594; *Set origin* &#8594; *Origin to 3D cursor*
 
 ---
+
+### Glass
+
+I used [this](https://www.youtube.com/watch?v=HmohExOAsW0) tutorial to make axisymmetric glass.
+
+The main takeaways are:
+  1. import a 2-dimensional image of the glassware (you can drag and drop (left click) an image from your desktop into blender)
+  2. in object mode: *Add* &#8594; *Mesh* &#8594; *Cylinder*
+  3. 'scale and align cylinder with image'
+     - Note: you should use the orthographic view so that you can align your cylinder correctly. You can select the 2D image and *Toggle X-ray* to allow selection of vertices behind the object (image).
+<img src="toggle_xray.png" width=300>
+
+  4. **tab** ('enter edit mode')
+  5. 'Delete top and bottom faces of cylinder'
+      - 'Select all edge vertices of a face'
+      - **delete**
+      - *Faces*
+  6. Iterative steps:
+      - 'select vertex group to extrude' (left click and drag)
+      - **e** (extrude)
+      - 'move vertices in desired direction'
+      - (when needed): **s** (scale) 'scale the vertices to make them trace the contour of the image'
+  7. *Modifier Properties* &#8594; *Add Modifier*  &#8594; *Solidify*
+  8. 'Set *thickness*' 
+  9. *Material Properties* &#8594; *Surface* &#8594; *Glass BSDF*
+
 # Properties Pane
 
-<img src="blender-properties.png" width=350>
+<img src="blender-properties.png">
 
